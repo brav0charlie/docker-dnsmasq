@@ -1,0 +1,27 @@
+# file: docker-compose.yml
+# description: This file provides a docker container running docker-dnsmasq.
+
+version: '3.7'
+
+networks:
+  dnsmasq:
+    name: 'dnsmasq'
+
+services:
+  dnsmasq:
+    container_name: 'dnsmasq'
+    build:
+      context: './docker-dnsmasq'
+    image: 'brav0charlie/dnsmasq'
+    cap_add:
+      - 'NET_ADMIN'
+    ports:
+      - '53:53/udp'
+      - '67:67/udp'
+      - '68:68/udp'
+    volumes:
+      - '/etc/localtime:/etc/localtime:ro'
+      - './config:/etc/dnsmasq.d'
+      - './log:/var/log/dnsmasq'
+    networks:
+      - 'dnsmasq'
