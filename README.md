@@ -63,7 +63,6 @@ In `dns.conf` we set some options:
    1. Tells dnsmasq to write logs to a file. We specify the file, because we bind-mount the the directory so we can access the file on our physical host.
    2. Dnsmasq will close and reopen it's log files when it receives the signal SIGUSR2. This is helpful if you'd like to use something like `logrotate` to rotate the logs. Just add a post-rotation command of `docker kill --signal=SIGUSR2 dnsmasq` to your logrorate script on the host.
 10. `log-queries`
-   3. Tells dnsmasq to log all queries it handles. This can cause lots of writes to disk, so be careful when using this flag. Uncomment to enable.
 
 
 ### DHCP Configuration
