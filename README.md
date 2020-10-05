@@ -13,7 +13,7 @@ I'm not really doing anything groundbreaking here, there really isn't much to th
 ## Important Notes
 - Currently, this container only listens on IPv4.
 - We're using Quad9 for our upstream DNS provider by default, but this can be changed.
-  - Details on changing this are in `config\dns.conf`.
+  - Details on changing this are in `config/dns.conf`.
 - Container binds to DNS & DHCP ports of the host machine (i.e., 53/udp, 67/udp, 68/udp).
   - Ubuntu 18.04 and later use a stub resolver (essentially dnsmasq) to cache DNS requests from the local host, so you'll need to disable that before starting this container:
     - `sudo systemctl stop systemd-resolved && sudo systemctl disable systemd-resloved`
