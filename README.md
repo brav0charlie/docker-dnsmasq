@@ -10,6 +10,18 @@ This project was born out of a larger project to get rid of the large, loud, hot
 
 I'm not really doing anything groundbreaking here, there really isn't much to the Dockerfile at all. Most of my work has been in building the custom configuration files to make things easier for me to manage later with any text editor I'd like.
 
+## Important Notes
+- Currently, this container only listens on IPv4.
+- We're using Quad9 for our upstream DNS provider by default, but this can be changed.
+  - Details on changing this are in `config\dns.conf`.
+- Container binds to DNS & DHCP ports of the host machine (i.e., 53/udp, 67/udp, 68/udp).
+  - Ubuntu 18.04 and later use a stub resolver (essentially dnsmasq) to cache DNS requests from the local host, so you'll need to disable that before starting this container:
+    - `sudo systemctl stop systemd-resolved && sudo systemctl disable systemd-resloved`
+
+## Installation
+1. Modify the four files in `config` to suit your environment. The files are commented well enough that you can figure out what's needed.
+2. Run docker-compose up -d docker-compose.yml to build & start the container.
+
 ## Configuration
 It's strongly recommended that you read the dnsmasq docs (http://www.thekelleys.org.uk/dnsmasq/doc.html) and visit the main site for more information on dnsmasq. While not entirely necessary, as the documentation below pretty well spells out the basics, it will give you a better understanding of how dnsmasq works it's magic. 
 
@@ -94,18 +106,7 @@ Finally, we set our DHCP reservations in `dhcp-reservations.conf`:
   - `dhcp-host=<mac_address>,<ip_address>,<hostname>,<leasetime>`
   - MAC Addresses should be entered in AB:CD:EF:G1:23:45 format (not case-sensitive)
   - Leasetimes can be expressed in m, h, or d, or 'infinite' (i.e., 12h)
-
-## Installation
-1. Modify the four files in `config` to suit your environment. The files are commented well enough that you can figure out what's needed.
-2. Run docker-compose up -d docker-compose.yml to start the container.
-
-## Important Notes
-- Currently, this container only listens on IPv4.
-- We're using Quad9 for our upstream DNS provider by default, but this can be changed.
-  - Details on changing this are in `config\dns.conf`.
-- Container binds to DNS & DHCP ports of the host machine (i.e., 53/udp, 67/udp, 68/udp).
-  - Ubuntu 18.04 and later use a stub resolver (essentially dnsmasq) to cache DNS requests from the local host, so you'll need to disable that before starting this container:
-    - `sudo systemctl stop systemd-resolved && sudo systemctl disable systemd-resloved`
+    
     
 ## Tips
 #### Source Version Control
