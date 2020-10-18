@@ -118,7 +118,7 @@ $ git init
 $ git add .
 $ git commit -m 'message'
 $ git remote add origin <url>
-$ git push -u origin master
+$ git push -u origin main
 ```
 
 # License Information
