@@ -1,4 +1,6 @@
 # file: hosts.local
-# description: This file is for setting static DNS entries in dnsmasq.
+# description: This file is for setting static DNS entries in dnsmasq. Each line should begin with an IP address, followed by a FQDN.
+#              Additional terms will be treated as CNAME records (i.e., pointers back to the FQDN).
+#
 
-# 192.168.1.100   example-host1.internal.example.com
+# 192.168.1.100   example-host1.internal.example.com    example-host1   example-web1
