@@ -72,7 +72,7 @@ In `dhcp.conf`, we'll set up our DHCP scopes:
    1. In this section, you'll add each IP range, or scope, that you want dnsmasq to serve addresses from. 
    1. You can do as many as you'd like, one per line.
    1. The syntax is:
-      1. `dhcp-range=<range_name>,<start_address>,<end_address>,<leasetime>`
+      1. `dhcp-range=<range_name>,<start_address>,<end_address>,<subnet_mask>,<leasetime>` 
       1. Leasetimes can be expressed in m, h, or d, or 'infinite' (i.e., 12h)
 1. Set gateway servers
    1. In this section, you'll define the default gateway, or router, for each DHCP scope.
