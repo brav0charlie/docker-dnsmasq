@@ -1,7 +1,7 @@
 # brav0charlie/docker-dnsmasq
 Docker container with a simple installation of dnsmasq to provide DNS and DHCP services to your local network.
 
-Based on Alpine Linux 'Edge' and dnsmasq-2.82-r0.
+Based on Alpine Linux 'Edge' and dnsmasq-2.84-r0.
 
 :bangbang: This base OS this container uses is Pre-Release Software. Please don't run this in production and expect it to perform. I built this for my home network, and I live alone. I won't be harmed if my network goes down. :)
 
