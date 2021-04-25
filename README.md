@@ -1,7 +1,7 @@
 # brav0charlie/docker-dnsmasq
 Docker container with a simple installation of dnsmasq to provide DNS and DHCP services to your local network.
 
-Based on Alpine Linux 'Edge' and dnsmasq-2.84-r0.
+Based on Alpine Linux 'Edge' and dnsmasq-2.85-r1.
 
 :bangbang: This base OS this container uses is Pre-Release Software. Please don't run this in production and expect it to perform. I built this for my home network, and I live alone. I won't be harmed if my network goes down. :)
 
@@ -45,7 +45,7 @@ In `dns.conf` we set some options:
    1. This tells dnsmasq to ignore the /etc/resolv.conf file and only forward to the servers we define later in this file.
 2. `addn-hosts=/etc/dnsmasq.d/hosts.local`
    1. This is the hosts file for our domain. Here, you'll define the static IP mappings, just like you would in /etc/hosts.
-3. `server=9.9.9.9` & `server=142.112.112.112`
+3. `server=9.9.9.9` & `server=149.112.112.112`
    1. These are the primary and secondary DNS servers provided by the service Quad9. Visit https://quad9.com for details. 
    1. You may also change these to whatever you'd like. For example, 8.8.8.8 & 8.8.4.4 for Google DNS, 1.1.1.1 or 1.0.0.1 for CloudFlare's 1.1.1.1 service.
 4. `domain-needed`
