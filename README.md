@@ -3,7 +3,7 @@ Docker container with a simple installation of dnsmasq to provide DNS and DHCP s
 
 Based on Alpine Linux 'Edge' and dnsmasq-2.85-r2.
 
-:bangbang: This base OS this container uses is Pre-Release Software. Please don't run this in production and expect it to perform. I built this for my home network, and I live alone. I won't be harmed if my network goes down. :)
+:bangbang: The base OS this container uses is Pre-Release Software. Please don't run this in production and expect it to perform. I built this for my home network, and I live alone. I won't be harmed if my network goes down. :)
 
 ## About
 This project was born out of a larger project to get rid of the large, loud, hot server sitting next to my desk at home. At the time, I was running a Windows Active Directory environment inside VMware, and needed to provide DNS/DHCP to my local network after before getting rid of the server. I don't like hosting it on my router for no good reason at all, and I'm in the progress of learning Docker so I figured I'd take a stab at a lightweight DNS/DHCP container. This container has been providing all DNS and DHCP services to my home network since late July 2020.
