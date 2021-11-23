@@ -73,7 +73,7 @@ In `dhcp.conf`, we'll set up our DHCP scopes:
    1. You can do as many as you'd like, one per line.
    1. The syntax is:
       1. `dhcp-range=<range_name>,<start_address>,<end_address>,<subnet_mask>,<leasetime>` 
-      1. Leasetimes can be expressed in m, h, or d, or 'infinite' (i.e., 12h)
+      1. Lease times can be expressed in `m`, `h`, `d`, or as `infinite` (i.e., `12h`).
 1. Set gateway servers
    1. In this section, you'll define the default gateway, or router, for each DHCP scope.
    1. Each scope should have one entry, one entry per line.
@@ -105,7 +105,7 @@ Finally, we set our DHCP reservations in `dhcp-reservations.conf`:
 - The syntax is:
   - `dhcp-host=<mac_address>,<ip_address>,<hostname>,<leasetime>`
   - MAC Addresses should be entered in `AB:CD:EF:G1:23:45` format (not case-sensitive)
-  - Leasetimes can be expressed in `m`, `h`, `d`, or as `infinite` (i.e., `12h`)
+  - Lease times can be expressed in `m`, `h`, `d`, or as `infinite` (i.e., `12h`)
     
     
 ## Tips
