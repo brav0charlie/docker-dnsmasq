@@ -3,4 +3,10 @@
 #              Additional terms will be treated as CNAME records (i.e., pointers back to the FQDN).
 #
 
+# A Records
+#   IP Address followed by a space/tab separated list of hostnames.
+#     - FQDN entered after IP address acts as Reverse DNS entry
+#     - Additional hostnames act as CNAME records.
+#
+
 # 192.168.1.100   example-host1.internal.example.com    example-host1   example-web1
