@@ -14,7 +14,7 @@ I'm not really doing anything groundbreaking here, there really isn't much to th
 - Currently, this container only listens on IPv4.
 - We're using Quad9 for our upstream DNS provider by default, but this can be changed.
   - Details on changing this are in `config/dns.conf`.
-- Container binds to DNS & DHCP ports of the host machine (i.e., 53/udp, 67/udp, 68/udp).
+- Container binds to DNS & DHCP ports of the host machine (i.e., `53/udp`, `67/udp`, `68/udp`).
   - Ubuntu 18.04 and later use a stub resolver (essentially dnsmasq) to cache DNS requests from the local host, so you'll need to disable that before starting this container:
     - `sudo systemctl stop systemd-resolved && sudo systemctl disable systemd-resloved`
 
@@ -85,10 +85,10 @@ In `dhcp.conf`, we'll set up our DHCP scopes:
       1. `dhcp-option=<range_name>,6,<ip_address>` (the 6 tag indicates it's a DNS server)
 
 ### Static DNS Entries
-We set our static DNS entries in the `hosts.local` file. This file works just like /etc/hosts. 
+We set our static DNS entries in the `hosts.local` file. This file works just like `/etc/hosts`. 
 
 The syntax is:
-`<ip_address>     <hostname>`
+`<ip_address>     <fully_qualified_domain_name>   <hostname> <additional_hostnames_as_needed>`
 
 The file accepts standard comments using the hash (#) symbol. It's recommended you comment your files so you know what you're looking at later. For example:
 ```
@@ -101,11 +101,11 @@ The file accepts standard comments using the hash (#) symbol. It's recommended y
 ### DHCP Reservations
 Finally, we set our DHCP reservations in `dhcp-reservations.conf`:
 - You can do as many as you'd like, one entry per line. The IP address you're reserving *does not* need to be within one of the scopes you defined above, just within the range of the target subnet.
-- Also supports standard comments using the hash (#) symbol. Comment your files!
+- Also supports standard comments using the hash (`#`) symbol. Comment your files!
 - The syntax is:
   - `dhcp-host=<mac_address>,<ip_address>,<hostname>,<leasetime>`
-  - MAC Addresses should be entered in AB:CD:EF:G1:23:45 format (not case-sensitive)
-  - Leasetimes can be expressed in m, h, or d, or 'infinite' (i.e., 12h)
+  - MAC Addresses should be entered in `AB:CD:EF:G1:23:45` format (not case-sensitive)
+  - Leasetimes can be expressed in `m`, `h`, `d`, or as `infinite` (i.e., `12h`)
     
     
 ## Tips
