@@ -105,7 +105,7 @@ Finally, we set our DHCP reservations in `dhcp-reservations.conf`:
 - The syntax is:
   - `dhcp-host=<mac_address>,<ip_address>,<hostname>,<leasetime>`
   - MAC Addresses should be entered in `AB:CD:EF:G1:23:45` format (not case-sensitive)
-  - Lease times can be expressed in `m`, `h`, `d`, or as `infinite` (i.e., `12h`)
+  - Lease times can be expressed in `m`, `h`, `d`, or as `infinite` (i.e., `12h`).
     
     
 ## Tips
