@@ -23,7 +23,7 @@ I'm not really doing anything groundbreaking here, there really isn't much to th
 2. Starting in this directory, run `docker-compose up -d docker-compose.yml` to build & start the container.
 
 ## Configuration
-It's strongly recommended that you read the dnsmasq docs (http://www.thekelleys.org.uk/dnsmasq/doc.html) and visit the main site for more information on dnsmasq. While not entirely necessary, as the documentation below pretty well spells out the basics, it will give you a better understanding of how dnsmasq works it's magic. 
+It's strongly recommended that you read the dnsmasq docs (http://www.thekelleys.org.uk/dnsmasq/doc.html) and visit the main site for more information on dnsmasq. While not entirely necessary, as the documentation below pretty well spells out the basics, it will give you a better understanding of how dnsmasq works its magic. 
 
 The four files provided in the `config` folder make up the core of our configuration. 
 
