@@ -8,7 +8,7 @@ Based on Alpine Linux 'Edge' and dnsmasq-2.86-r0.
 💡 To build a version of docker-dnsmasq using the latest stable version of Alpine Linux, use `Dockerfile-stable` in the `docker-dnsmasq` directory. The easiest way to do this is to `mv Dockerfile Dockerfile-prerelease` and then `mv Dockerfile-stable Dockerfile` and then build the container.
 
 ## About
-This project was born out of a larger project to get rid of the large, loud, hot server sitting next to my desk at home. At the time, I was running a Windows Active Directory environment inside VMware, and needed to provide DNS/DHCP to my local network after before getting rid of the server. I don't like hosting it on my router for no good reason at all, and I'm in the progress of learning Docker so I figured I'd take a stab at a lightweight DNS/DHCP container. This container has been providing all DNS and DHCP services to my home network since late July 2020.
+This project was born out of a larger project to get rid of the large, loud, hot server sitting next to my desk at home. At the time, I was running a Windows Active Directory environment inside VMware, and needed to provide DNS/DHCP to my local network before getting rid of the server. I don't like hosting it on my router for no good reason at all, and I'm in the progress of learning Docker so I figured I'd take a stab at a lightweight DNS/DHCP container. This container has been providing all DNS and DHCP services to my home network since late July 2020.
 
 I'm not really doing anything groundbreaking here, there really isn't much to the Dockerfile at all. Most of my work has been in building the custom configuration files to make things easier for me to manage later with any text editor I'd like.
 
