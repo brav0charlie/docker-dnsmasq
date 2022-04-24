@@ -60,7 +60,7 @@ In `dns.conf` we set some options:
 8. `expand-hosts`
    1. Tells dnsmasq to expand queries for a just a hostname to a FQDN by appending the domain set above.
 9. `log-facility=/var/log/dnsmasq/dnsmasq.log`
-   1. Tells dnsmasq to write logs to a file. We specify the file, because we bind-mount the the directory so we can access the file on our physical host.
+   1. Tells dnsmasq to write logs to a file. We specify the file because we bind-mount the the directory so we can access the file on our physical host.
    2. Dnsmasq will close and reopen it's log files when it receives the signal SIGUSR2. This is helpful if you'd like to use something like `logrotate` to rotate the logs. Just add a post-rotation command of `docker kill --signal=SIGUSR2 dnsmasq` to your logrorate script on the host.
 9. `log-queries`
    1. Tells dnsmasq to log all queries it handles. This can cause lots of writes to disk, so be careful when using this flag. Uncomment to enable.
