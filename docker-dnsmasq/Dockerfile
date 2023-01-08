@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.17
 LABEL maintainer="Bill Clark <36345117+brav0charlie@users.noreply.github.com>"
 LABEL github_url="https://github.com/brav0charlie/docker-dnsmasq"
 
