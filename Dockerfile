@@ -5,7 +5,7 @@ LABEL org.opencontainers.image.source https://github.com/brav0charlie/docker-dns
 LABEL org.opencontainers.image.description "A dnsmasq Docker container"
 
 # Install dnsmasq
-RUN apk --no-cache add dnsmasq=2.87-r1
+RUN apk --no-cache add dnsmasq=2.87-r2
 
 # Expose ports: 53/tcp (DNS), 67/udp & 68/udp (DHCP)
 EXPOSE 53/udp
