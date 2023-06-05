@@ -1,11 +1,11 @@
-FROM alpine:3.17
+FROM alpine:3.18
 LABEL maintainer="Bill Clark <36345117+brav0charlie@users.noreply.github.com>"
 LABEL github_url="https://github.com/brav0charlie/docker-dnsmasq"
 LABEL org.opencontainers.image.source https://github.com/brav0charlie/docker-dnsmasq
 LABEL org.opencontainers.image.description "A dnsmasq Docker container"
 
 # Install dnsmasq
-RUN apk --no-cache add dnsmasq=2.87-r2
+RUN apk --no-cache add dnsmasq=2.89-r5
 
 # Expose ports: 53/tcp (DNS), 67/udp & 68/udp (DHCP)
 EXPOSE 53/udp
