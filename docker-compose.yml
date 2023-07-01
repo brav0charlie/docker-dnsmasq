@@ -15,6 +15,7 @@ services:
     image: 'brav0charlie/docker-dnsmasq:latest'
     cap_add:
       - 'NET_ADMIN'
+      # Adding NET_ADMIN capability is required for DHCP Server to function
     ports:
       - '53:53/udp'
       - '67:67/udp'
