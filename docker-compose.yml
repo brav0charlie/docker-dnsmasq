@@ -11,8 +11,8 @@ services:
   dnsmasq:
     container_name: 'dnsmasq'
     build:
-      context: './docker-dnsmasq'
-    image: 'brav0charlie/docker-dnsmasq:2.87-r0'
+      context: '.'
+    image: 'brav0charlie/docker-dnsmasq:latest'
     cap_add:
       - 'NET_ADMIN'
     ports:
