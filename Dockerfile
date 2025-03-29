@@ -1,8 +1,8 @@
 FROM alpine:3.21
 LABEL maintainer="Bill Clark <36345117+brav0charlie@users.noreply.github.com>"
 LABEL github_url="https://github.com/brav0charlie/docker-dnsmasq"
-LABEL org.opencontainers.image.source https://github.com/brav0charlie/docker-dnsmasq
-LABEL org.opencontainers.image.description "A dnsmasq Docker container"
+LABEL org.opencontainers.image.source="https://github.com/brav0charlie/docker-dnsmasq"
+LABEL org.opencontainers.image.description="A dnsmasq Docker container"
 
 # Install dnsmasq
 RUN apk --no-cache add dnsmasq=2.90-r3
