@@ -1,8 +1,5 @@
 # file: docker-compose.yml
 # description: This file provides a docker container running docker-dnsmasq.
-
-version: '3.7'
-
 networks:
   dnsmasq:
     name: 'dnsmasq'
