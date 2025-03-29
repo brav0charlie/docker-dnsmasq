@@ -1,4 +1,4 @@
-FROM alpine:3.20
+FROM alpine:3.21
 LABEL maintainer="Bill Clark <36345117+brav0charlie@users.noreply.github.com>"
 LABEL github_url="https://github.com/brav0charlie/docker-dnsmasq"
 LABEL org.opencontainers.image.source https://github.com/brav0charlie/docker-dnsmasq
