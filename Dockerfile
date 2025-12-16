@@ -5,7 +5,7 @@ LABEL org.opencontainers.image.source="https://github.com/brav0charlie/docker-dn
 LABEL org.opencontainers.image.description="A dnsmasq Docker container"
 
 # Install dnsmasq
-RUN apk add --no-cache "dnsmasq"
+RUN apk add --no-cache dnsmasq
 
 # Expose ports: 53/tcp (DNS), 67/udp & 68/udp (DHCP)
 EXPOSE 53/udp
