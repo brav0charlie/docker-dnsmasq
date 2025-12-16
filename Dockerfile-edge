@@ -5,7 +5,7 @@ LABEL org.opencontainers.image.source https://github.com/brav0charlie/docker-dns
 LABEL org.opencontainers.image.description "A dnsmasq Docker container"
 
 # Pin dnsmasq version
-ARG DNSMASQ_VERSION=2.91-r1
+ARG DNSMASQ_VERSION=2.91-r0
 
 # Install dnsmasq
 RUN apk add --no-cache "dnsmasq=${DNSMASQ_VERSION}"
