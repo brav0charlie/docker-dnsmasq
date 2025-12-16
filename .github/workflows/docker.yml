@@ -5,8 +5,8 @@ on:
     types: [published]
   workflow_dispatch:
     inputs:
-      tag:
-        description: "Tag to publish (e.g. v2.91-r0). REQUIRED for manual runs."
+      publish_tag:
+        description: "Docker tag to publish (e.g. v2.91-r0). REQUIRED for manual runs."
         required: true
 
 permissions:
@@ -25,12 +25,13 @@ jobs:
       BUILDKIT_PROGRESS: plain
 
     steps:
-      - name: Checkout repository (correct ref)
+      - name: Checkout repository (branch HEAD for manual runs, release ref for releases)
         uses: actions/checkout@v4
         with:
-          # On manual runs, build the tag the user typed.
-          # On release runs, build the release ref.
-          ref: ${{ github.event_name == 'workflow_dispatch' && format('refs/tags/{0}', inputs.tag) || github.ref }}
+          # For release events, github.ref points at the release tag ref.
+          # For workflow_dispatch, github.ref points at the selected branch ref.
+          ref: ${{ github.ref }}
+          fetch-depth: 1
 
       - name: Set up QEMU (for multi-arch builds)
         uses: docker/setup-qemu-action@v3
@@ -47,33 +48,31 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Determine tag to publish
+      - name: Determine Docker tag to publish
         id: vars
         shell: bash
         run: |
           set -euo pipefail
 
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            TAG="${{ inputs.tag }}"
-            if [[ -z "${TAG}" ]]; then
-              echo "ERROR: Manual runs require an explicit 'tag' input."
-              exit 1
-            fi
+            TAG="${{ inputs.publish_tag }}"
           else
-            # release.published
+            # release.published: ref name is the release tag
             TAG="${GITHUB_REF_NAME}"
           fi
 
-          # Strip accidental refs/tags/ prefix if someone pastes it.
+          # Strip accidental refs/tags/ prefix if someone pastes it
           TAG="${TAG#refs/tags/}"
 
           if [[ -z "${TAG}" ]]; then
-            echo "ERROR: Tag resolved to empty value."
+            echo "ERROR: Docker tag resolved to empty value."
             exit 1
           fi
 
           echo "TAG=${TAG}" >> "$GITHUB_OUTPUT"
-          echo "Publishing tag: ${TAG}"
+          echo "Publishing Docker tag: ${TAG}"
+          echo "Building from git ref: $GITHUB_REF"
+          echo "Git SHA: $GITHUB_SHA"
 
       - name: Build and push Docker image (version + latest)
         uses: docker/build-push-action@v6
