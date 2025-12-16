@@ -4,12 +4,8 @@ LABEL github_url="https://github.com/brav0charlie/docker-dnsmasq"
 LABEL org.opencontainers.image.source="https://github.com/brav0charlie/docker-dnsmasq"
 LABEL org.opencontainers.image.description="A dnsmasq Docker container"
 
-# Pin dnsmasq version
-ARG DNSMASQ_VERSION=2.91-r0
-
 # Install dnsmasq
-RUN cat /etc/apk/repositories && apk update && apk policy dnsmasq
-RUN apk add --no-cache "dnsmasq=${DNSMASQ_VERSION}"
+RUN apk add --no-cache "dnsmasq"
 
 # Expose ports: 53/tcp (DNS), 67/udp & 68/udp (DHCP)
 EXPOSE 53/udp
