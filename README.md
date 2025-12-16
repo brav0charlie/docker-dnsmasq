@@ -1,7 +1,7 @@
 # brav0charlie/docker-dnsmasq
 Docker container with a simple installation of dnsmasq to provide DNS and DHCP services to your local network.
 
-Based on Alpine Linux 'latest' (currently 3.22) and dnsmasq-2.91-r0.
+Based on Alpine Linux 'latest' (currently 3.23) and dnsmasq-2.91-r0.
 
 💡 To build a version of docker-dnsmasq using the latest pre-release version of Alpine Linux Edge and dnsmasq-2.91-r0, use `Dockerfile-edge`. The easiest way to do this is to `mv Dockerfile Dockerfile-release` and then `mv Dockerfile-edge Dockerfile` and then build the container. Be sure to also change the version in the `image:` name in `docker-compose.yml` so your image gets built with the correct version.
 
